@@ -4,23 +4,23 @@ var h3 =document.querySelector("h3");
 var nameElement = document.querySelector("#name");
 var yearElement= document.querySelector("#year");
 var btn= document.querySelector("#button");
- function handleSubmit(event) {
+ function handleSubmit(event) {	 
  	event.preventDefault();
-	 var h3Value= he.innerText;
+	 var h3Value= h3.innerText;
 	 var name = nameElement.value;
 	 var year = yearElement.value;
-	 if(name)
+	 if(name && year)
 	 {
-		 h3Value += '?name= ${name}';
+		 h3Value += '?name=' + name + '&year=' + year;
 	 }
 	 else if (!name && year)
 	 {
-		 h3Value += '?year= ${year}';
+		 h3Value += '?year=' + year;
 	 }
-	 else if(name && year)
+	 else if(name && !year)
 	 {
-		 h3Value+= '&year= ${year}';
+		 h3Value+= '?name=' + name;
 	 }
-	 h3.textContant= h3Value;
+	 h3.textContent= h3Value;
  }
-btn.addEventListener('click' , handleSubmit);
+form.addEventListener('submit' ,handleSubmit);
